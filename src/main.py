@@ -238,29 +238,60 @@ window.geometry('400x500')
 # text = Text(window)
 # text.pack()
 
-from tkinter import messagebox
+# from tkinter import messagebox
+#
+# def show_info():
+#     messagebox.showinfo('Author', 'created by Rahmat')
+#
+# def show_exit():
+#     value = messagebox.askquestion('exit', 'do you want exit?')
+#     if value == 1:
+#         window.quit()
+#
+# def show_error():
+#     messagebox.showerror('error', 'something not ok!')
+#
+# def show_warn():
+#     messagebox.showwarning('warn', 'hey - you are warning!')
+#
+# menubar = Menu(window)
+# menubar.add_command(label='info', command=show_info)
+# menubar.add_command(label='exit', command=show_exit)
+#
+# Button(window, text='error', command=show_error).pack()
+# Button(window, text='warning', command=show_warn).pack()
+#
+# window.config(menu=menubar)
 
-def show_info():
-    messagebox.showinfo('Author', 'created by Rahmat')
+f0 = Frame(window, bg='yellow')
+f0.pack(expand=True, fill='both')
+lables = ['First Name', 'Last Name', 'Site', 'Social Media']
 
-def show_exit():
-    value = messagebox.askquestion('exit', 'do you want exit?')
-    if value == 1:
-        window.quit()
+i = 0
+for item in lables:
+    Label(f0, text=item).grid(row=i, column=0)
+    Entry(f0).grid(row=i, column=1)
+    i += 1
 
-def show_error():
-    messagebox.showerror('error', 'something not ok!')
 
-def show_warn():
-    messagebox.showwarning('warn', 'hey - you are warning!')
+f1 = Frame(window, bg='aqua')
+f1.pack(expand=True, fill='both')
 
-menubar = Menu(window)
-menubar.add_command(label='info', command=show_info)
-menubar.add_command(label='exit', command=show_exit)
+f2 = LabelFrame(window, bg='pink')
+f2.pack(expand=True, fill='both')
 
-Button(window, text='error', command=show_error).pack()
-Button(window, text='warning', command=show_warn).pack()
+Label(f1, text='test 1', bg='red').grid(row=0, column=0)
+Label(f1, text='test 2', bg='purple').grid(row=0, column=1)
+Label(f1, text='test 3', bg='gray').grid(row=1, column=0)
+Label(f1, text='test 4', bg='yellow').grid(row=4, column=4)
 
-window.config(menu=menubar)
+Label(f2, text='name: ', bg='white').grid(row=0, column=0)
+Entry(f2).grid(row=0, column=1)
+
+Label(window, text='test 5').pack()
+
+
+
+
 
 window.mainloop()
