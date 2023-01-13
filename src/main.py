@@ -205,37 +205,62 @@ window.geometry('400x500')
 #
 # panel_2.add(Label(panel_2, text='test'))
 
+# menubar = Menu(window)
+#
+# def save_file():
+#     with open('output.txt', 'w') as f:
+#         f.write(text.get(1.0, END))
+#
+# def open_file():
+#     with open('output.txt') as f:
+#         data = f.read()
+#     text.insert('insert', data)
+#
+# filemenu = Menu(menubar, tearoff=0)
+# menubar.add_cascade(label='File', menu=filemenu)
+# filemenu.add_command(label='Save', command=save_file)
+# filemenu.add_command(label='Open', command=open_file)
+# filemenu.add_separator()
+# filemenu.add_command(label='Exit', command=window.quit)
+#
+# editmenu = Menu(menubar, tearoff=0)
+# menubar.add_cascade(label='Edit', menu=editmenu)
+# editmenu.add_command(label='Copy')
+# editmenu.add_command(label='Cut')
+# editmenu.add_command(label='Paste')
+#
+# helpmenu = Menu(menubar, tearoff=0)
+# menubar.add_cascade(label='Help', menu=helpmenu)
+# helpmenu.add_command(label='About')
+#
+# window.config(menu=menubar)
+#
+# text = Text(window)
+# text.pack()
+
+from tkinter import messagebox
+
+def show_info():
+    messagebox.showinfo('Author', 'created by Rahmat')
+
+def show_exit():
+    value = messagebox.askquestion('exit', 'do you want exit?')
+    if value == 1:
+        window.quit()
+
+def show_error():
+    messagebox.showerror('error', 'something not ok!')
+
+def show_warn():
+    messagebox.showwarning('warn', 'hey - you are warning!')
+
 menubar = Menu(window)
+menubar.add_command(label='info', command=show_info)
+menubar.add_command(label='exit', command=show_exit)
 
-def save_file():
-    with open('output.txt', 'w') as f:
-        f.write(text.get(1.0, END))
-
-def open_file():
-    with open('output.txt') as f:
-        data = f.read()
-    text.insert('insert', data)
-
-filemenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label='File', menu=filemenu)
-filemenu.add_command(label='Save', command=save_file)
-filemenu.add_command(label='Open', command=open_file)
-filemenu.add_separator()
-filemenu.add_command(label='Exit', command=window.quit)
-
-editmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label='Edit', menu=editmenu)
-editmenu.add_command(label='Copy')
-editmenu.add_command(label='Cut')
-editmenu.add_command(label='Paste')
-
-helpmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label='Help', menu=helpmenu)
-helpmenu.add_command(label='About')
+Button(window, text='error', command=show_error).pack()
+Button(window, text='warning', command=show_warn).pack()
 
 window.config(menu=menubar)
-
-text = Text(window)
-text.pack()
 
 window.mainloop()
