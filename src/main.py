@@ -118,19 +118,35 @@ window = Tk()
 window.title('simple gui')
 window.geometry('400x500')
 
-text = Text(window)
-text.pack()
+# text = Text(window)
+# text.pack()
+#
+# def save_text():
+#     with open('output.txt', 'w') as f:
+#         f.write(text.get(1.0, END))
+#
+# def load_text():
+#     with open('output.txt') as f:
+#         data = f.read()
+#     text.insert(INSERT, data)
+#
+# Button(window, text='save', command=save_text).pack()
+# Button(window, text='load', command=load_text).pack()
 
-def save_text():
-    with open('output.txt', 'w') as f:
-        f.write(text.get(1.0, END))
+name = Entry(window)
+name.pack()
 
-def load_text():
-    with open('output.txt') as f:
-        data = f.read()
-    text.insert(INSERT, data)
+def clear_list():
+    list_box.delete(0, END)
 
-Button(window, text='save', command=save_text).pack()
-Button(window, text='load', command=load_text).pack()
+def insert_list():
+    list_box.insert(END, name.get())
+
+Button(window, text='add', width=15, fg='green', command=insert_list).pack()
+Button(window, text='clear', width=15, fg='red', command=clear_list).pack()
+
+list_box = Listbox(window)
+list_box.pack()
+
 
 window.mainloop()
