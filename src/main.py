@@ -7,10 +7,15 @@ window.maxsize(600, 450)
 window.geometry('400x300')
 # window.resizable(width=False, height=False)
 
-Label(window, text='Hello World!').pack()
-Label(window, text='Hello World!', font=('Tahoma', 20)).pack()
-Label(window, text='Hello World!', background='aqua', foreground='blue').pack()
+# Label(window, text='Hello World!').pack()
+# Label(window, text='Hello World!', font=('Tahoma', 20)).pack()
+# Label(window, text='Hello World!', background='aqua', foreground='blue').pack()
+#
+# Button(window, text='click me!', bg='yellow').pack()
 
-Button(window, text='click me!', bg='yellow').pack()
+hello_label = Label(window, text='hello world')
+hello_label.pack()
+
+hello_label.config(fg='blue')
 
 window.mainloop()
