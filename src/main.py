@@ -155,12 +155,26 @@ window.geometry('400x500')
 # for line in range(200):
 #     list_box.insert(END, 'this is line number: {}'.format(line + 1))
 
-spin = Spinbox(window, from_=0, to=100)
-spin.pack()
+# spin = Spinbox(window, from_=0, to=100)
+# spin.pack()
+#
+# def print_number():
+#     print(spin.get())
+#
+# Button(window, text='get', command=print_number).pack()
 
-def print_number():
-    print(spin.get())
+cw = Canvas(window, width=1000, height=1000)
+cw.pack()
 
-Button(window, text='get', command=print_number).pack()
+cw.create_line(10, 10, 10, 100)
+cw.create_line(50, 10, 50, 100, fill='red', dash=(3, 3))
+cw.create_rectangle(70, 10, 150, 150, fill='blue', outline='red')
+cw.create_oval(190, 10, 260, 300, fill='yellow')
+cw.create_arc(10, 200, 150, 300, fill='aqua')
+cw.create_polygon([300, 10, 400, 350, 500, 200, 700, 300], fill='pink', outline='blue')
+cw.create_text(100, 400, fill='darkblue', font='Times 20 italic bold', text='EnAnsari')
+# image_file = PhotoImage(file='C:\\Users\\Mateo\\Pictures\\Screenshots\\Screenshot-1.png')
+# cw.create_image(400, 500, image=image_file)
+
 
 window.mainloop()
