@@ -176,10 +176,20 @@ window.geometry('400x500')
 # image_file = PhotoImage(file='C:\\Users\\Mateo\\Pictures\\Screenshots\\Screenshot-1.png')
 # cw.create_image(400, 500, image=image_file)
 
-top = Toplevel()
-top.title('hint')
-top.geometry('200x100')
-top.resizable(width=False, height=False)
-Label(top, text='this is top window').pack()
+# top = Toplevel()
+# top.title('hint')
+# top.geometry('200x100')
+# top.resizable(width=False, height=False)
+# Label(top, text='this is top window').pack()
+
+frame1 = LabelFrame(window, text='registration')
+frame1.pack(fill=BOTH, expand=True)
+
+frame2 = Frame(window, bg='yellow')
+frame2.pack(expand=True, fill=BOTH)
+
+Label(frame1, text='label in frame 1').pack()
+Label(frame2, text='label in frame 2').pack()
+
 
 window.mainloop()
