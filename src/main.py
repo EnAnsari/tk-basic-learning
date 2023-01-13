@@ -191,18 +191,51 @@ window.geometry('400x500')
 # Label(frame1, text='label in frame 1').pack()
 # Label(frame2, text='label in frame 2').pack()
 
-panel_1 = PanedWindow(window, bg='red', bd=4)
-panel_1.pack(fill='both', expand=True)
+# panel_1 = PanedWindow(window, bg='red', bd=4)
+# panel_1.pack(fill='both', expand=True)
+#
+# label_pn1 = Label(panel_1, text='panel 1')
+# panel_1.add(label_pn1)
+#
+# panel_2 = PanedWindow(window, bg='blue', bd=4, orient='vertical')
+# panel_1.add(panel_2)
+#
+# label_pn2 = Label(panel_2, text='panel 2')
+# panel_2.add(label_pn2)
+#
+# panel_2.add(Label(panel_2, text='test'))
 
-label_pn1 = Label(panel_1, text='panel 1')
-panel_1.add(label_pn1)
+menubar = Menu(window)
 
-panel_2 = PanedWindow(window, bg='blue', bd=4, orient='vertical')
-panel_1.add(panel_2)
+def save_file():
+    with open('output.txt', 'w') as f:
+        f.write(text.get(1.0, END))
 
-label_pn2 = Label(panel_2, text='panel 2')
-panel_2.add(label_pn2)
+def open_file():
+    with open('output.txt') as f:
+        data = f.read()
+    text.insert('insert', data)
 
-panel_2.add(Label(panel_2, text='test'))
+filemenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label='File', menu=filemenu)
+filemenu.add_command(label='Save', command=save_file)
+filemenu.add_command(label='Open', command=open_file)
+filemenu.add_separator()
+filemenu.add_command(label='Exit', command=window.quit)
+
+editmenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label='Edit', menu=editmenu)
+editmenu.add_command(label='Copy')
+editmenu.add_command(label='Cut')
+editmenu.add_command(label='Paste')
+
+helpmenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label='Help', menu=helpmenu)
+helpmenu.add_command(label='About')
+
+window.config(menu=menubar)
+
+text = Text(window)
+text.pack()
 
 window.mainloop()
