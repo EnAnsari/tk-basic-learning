@@ -148,11 +148,19 @@ window.geometry('400x500')
 # list_box = Listbox(window)
 # list_box.pack()
 
-list_box = Listbox(window)
-Scrollbar(window, command=list_box.yview).pack(side=RIGHT, fill=BOTH)
-list_box.pack(expand=True, fill=BOTH)
+# list_box = Listbox(window)
+# Scrollbar(window, command=list_box.yview).pack(side=RIGHT, fill=BOTH)
+# list_box.pack(expand=True, fill=BOTH)
+#
+# for line in range(200):
+#     list_box.insert(END, 'this is line number: {}'.format(line + 1))
 
-for line in range(200):
-    list_box.insert(END, 'this is line number: {}'.format(line + 1))
+spin = Spinbox(window, from_=0, to=100)
+spin.pack()
+
+def print_number():
+    print(spin.get())
+
+Button(window, text='get', command=print_number).pack()
 
 window.mainloop()
