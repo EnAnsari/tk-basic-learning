@@ -182,14 +182,27 @@ window.geometry('400x500')
 # top.resizable(width=False, height=False)
 # Label(top, text='this is top window').pack()
 
-frame1 = LabelFrame(window, text='registration')
-frame1.pack(fill=BOTH, expand=True)
+# frame1 = LabelFrame(window, text='registration')
+# frame1.pack(fill=BOTH, expand=True)
+#
+# frame2 = Frame(window, bg='yellow')
+# frame2.pack(expand=True, fill=BOTH)
+#
+# Label(frame1, text='label in frame 1').pack()
+# Label(frame2, text='label in frame 2').pack()
 
-frame2 = Frame(window, bg='yellow')
-frame2.pack(expand=True, fill=BOTH)
+panel_1 = PanedWindow(window, bg='red', bd=4)
+panel_1.pack(fill='both', expand=True)
 
-Label(frame1, text='label in frame 1').pack()
-Label(frame2, text='label in frame 2').pack()
+label_pn1 = Label(panel_1, text='panel 1')
+panel_1.add(label_pn1)
 
+panel_2 = PanedWindow(window, bg='blue', bd=4, orient='vertical')
+panel_1.add(panel_2)
+
+label_pn2 = Label(panel_2, text='panel 2')
+panel_2.add(label_pn2)
+
+panel_2.add(Label(panel_2, text='test'))
 
 window.mainloop()
