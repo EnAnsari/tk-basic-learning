@@ -38,13 +38,29 @@ window.geometry('400x300')
 # lbl.pack()
 # btn.pack()
 
-def change_status():
-    lbl.config(text='status: online', foreground='green')
+# def change_status():
+#     lbl.config(text='status: online', foreground='green')
+#
+# btn = Button(window, text='click me!', command=change_status, width=40, border=5)
+# lbl = Label(window, text='status: offline', fg='red')
+#
+# lbl.pack()
+# btn.pack()
 
-btn = Button(window, text='click me!', command=change_status, width=40, border=5)
-lbl = Label(window, text='status: offline', fg='red')
+Label(window, text='First name:').pack()
+first_name = Entry(window)
+first_name.pack()
+Label(window, text='Last name:').pack()
+last_name = Entry(window)
+last_name.pack()
 
+def sign_in():
+    lbl.config(text=f'Welcome mr/mrs {first_name.get()} {last_name.get()}')
+    
+sign_in_btn = Button(window, text='sign in', command=sign_in)
+sign_in_btn.pack()
+
+lbl = Label(window)
 lbl.pack()
-btn.pack()
 
 window.mainloop()
