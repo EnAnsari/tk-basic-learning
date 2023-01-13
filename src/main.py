@@ -54,8 +54,16 @@ Label(window, text='Last name:').pack()
 last_name = Entry(window)
 last_name.pack()
 
+male_var = IntVar()
+Checkbutton(window, text='male', variable=male_var).pack()
+
 def sign_in():
-    lbl.config(text=f'Welcome mr/mrs {first_name.get()} {last_name.get()}')
+    prename = ''
+    if male_var.get() == 1:
+        prename = 'mr'
+    else:
+        prename = 'mrs'
+    lbl.config(text=f'Welcome {prename} {first_name.get()} {last_name.get()}')
 
 sign_in_btn = Button(window, text='sign in', command=sign_in)
 sign_in_btn.pack()
