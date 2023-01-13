@@ -13,9 +13,15 @@ window.geometry('400x300')
 #
 # Button(window, text='click me!', bg='yellow').pack()
 
-hello_label = Label(window, text='hello world')
-hello_label.pack()
+# hello_label = Label(window, text='hello world')
+# hello_label.pack()
+#
+# hello_label.config(fg='blue')
 
-hello_label.config(fg='blue')
+def print_hello():
+    print('hello world!')
+
+btn = Button(window, text='click me!', command=print_hello)
+btn.pack()
 
 window.mainloop()
