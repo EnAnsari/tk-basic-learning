@@ -56,7 +56,7 @@ last_name.pack()
 
 def sign_in():
     lbl.config(text=f'Welcome mr/mrs {first_name.get()} {last_name.get()}')
-    
+
 sign_in_btn = Button(window, text='sign in', command=sign_in)
 sign_in_btn.pack()
 
