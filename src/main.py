@@ -18,10 +18,25 @@ window.geometry('400x300')
 #
 # hello_label.config(fg='blue')
 
-def print_hello():
-    print('hello world!')
+# def print_hello():
+#     print('hello world!')
+#
+# btn = Button(window, text='click me!', command=print_hello)
+# btn.pack()
 
-btn = Button(window, text='click me!', command=print_hello)
+counter = 0
+
+def increse_counter():
+    global counter
+    counter += 1
+    # print(counter)
+    lbl.config(text=f'counter = {counter}')
+    
+btn = Button(window, text='click me!', command=increse_counter)
+lbl = Label(window, text='counter = 0')
+
+lbl.pack()
 btn.pack()
+
 
 window.mainloop()
