@@ -133,20 +133,26 @@ window.geometry('400x500')
 # Button(window, text='save', command=save_text).pack()
 # Button(window, text='load', command=load_text).pack()
 
-name = Entry(window)
-name.pack()
-
-def clear_list():
-    list_box.delete(0, END)
-
-def insert_list():
-    list_box.insert(END, name.get())
-
-Button(window, text='add', width=15, fg='green', command=insert_list).pack()
-Button(window, text='clear', width=15, fg='red', command=clear_list).pack()
+# name = Entry(window)
+# name.pack()
+#
+# def clear_list():
+#     list_box.delete(0, END)
+#
+# def insert_list():
+#     list_box.insert(END, name.get())
+#
+# Button(window, text='add', width=15, fg='green', command=insert_list).pack()
+# Button(window, text='clear', width=15, fg='red', command=clear_list).pack()
+#
+# list_box = Listbox(window)
+# list_box.pack()
 
 list_box = Listbox(window)
-list_box.pack()
+Scrollbar(window, command=list_box.yview).pack(side=RIGHT, fill=BOTH)
+list_box.pack(expand=True, fill=BOTH)
 
+for line in range(200):
+    list_box.insert(END, 'this is line number: {}'.format(line + 1))
 
 window.mainloop()
