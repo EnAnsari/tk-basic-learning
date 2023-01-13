@@ -24,19 +24,27 @@ window.geometry('400x300')
 # btn = Button(window, text='click me!', command=print_hello)
 # btn.pack()
 
-counter = 0
+# counter = 0
+#
+# def increse_counter():
+#     global counter
+#     counter += 1
+#     # print(counter)
+#     lbl.config(text=f'counter = {counter}')
+#
+# btn = Button(window, text='click me!', command=increse_counter)
+# lbl = Label(window, text='counter = 0')
+#
+# lbl.pack()
+# btn.pack()
 
-def increse_counter():
-    global counter
-    counter += 1
-    # print(counter)
-    lbl.config(text=f'counter = {counter}')
-    
-btn = Button(window, text='click me!', command=increse_counter)
-lbl = Label(window, text='counter = 0')
+def change_status():
+    lbl.config(text='status: online', foreground='green')
+
+btn = Button(window, text='click me!', command=change_status, width=40, border=5)
+lbl = Label(window, text='status: offline', fg='red')
 
 lbl.pack()
 btn.pack()
-
 
 window.mainloop()
