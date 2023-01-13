@@ -71,11 +71,20 @@ window.geometry('400x300')
 # lbl = Label(window)
 # lbl.pack()
 
-Modes = [('male', 'man'), ('female', 'woman'), ('unknown', 'none')]
-var = StringVar()
-var.set('man')
+# Modes = [('male', 'man'), ('female', 'woman'), ('unknown', 'none')]
+# var = StringVar()
+# var.set('man')
+#
+# for text, mode in Modes:
+#     Radiobutton(window, text=text, variable=var, value=mode, indicatoron=0).pack(anchor=W)
 
-for text, mode in Modes:
-    Radiobutton(window, text=text, variable=var, value=mode, indicatoron=0).pack(anchor=W)
+scale_dim = Scale(window, from_=0, to=100, orient=HORIZONTAL)
+scale_dim.pack()
 
+def push_btn():
+    lbl.config(text=f'value = {scale_dim.get()}')
+
+Button(window, text='get value', command=push_btn).pack()
+lbl = Label(window, fg='green')
+lbl.pack()
 window.mainloop()
