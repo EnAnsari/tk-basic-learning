@@ -47,28 +47,35 @@ window.geometry('400x300')
 # lbl.pack()
 # btn.pack()
 
-Label(window, text='First name:').pack()
-first_name = Entry(window)
-first_name.pack()
-Label(window, text='Last name:').pack()
-last_name = Entry(window)
-last_name.pack()
+# Label(window, text='First name:').pack()
+# first_name = Entry(window)
+# first_name.pack()
+# Label(window, text='Last name:').pack()
+# last_name = Entry(window)
+# last_name.pack()
+#
+# male_var = IntVar()
+# Checkbutton(window, text='male', variable=male_var).pack()
+#
+# def sign_in():
+#     prename = ''
+#     if male_var.get() == 1:
+#         prename = 'mr'
+#     else:
+#         prename = 'mrs'
+#     lbl.config(text=f'Welcome {prename} {first_name.get()} {last_name.get()}')
+#
+# sign_in_btn = Button(window, text='sign in', command=sign_in)
+# sign_in_btn.pack()
+#
+# lbl = Label(window)
+# lbl.pack()
 
-male_var = IntVar()
-Checkbutton(window, text='male', variable=male_var).pack()
+Modes = [('male', 'man'), ('female', 'woman'), ('unknown', 'none')]
+var = StringVar()
+var.set('man')
 
-def sign_in():
-    prename = ''
-    if male_var.get() == 1:
-        prename = 'mr'
-    else:
-        prename = 'mrs'
-    lbl.config(text=f'Welcome {prename} {first_name.get()} {last_name.get()}')
-
-sign_in_btn = Button(window, text='sign in', command=sign_in)
-sign_in_btn.pack()
-
-lbl = Label(window)
-lbl.pack()
+for text, mode in Modes:
+    Radiobutton(window, text=text, variable=var, value=mode, indicatoron=0).pack(anchor=W)
 
 window.mainloop()
